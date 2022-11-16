@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./FlightCard.module.scss";
 import LogoImg from "../../assets/img/s7logo.svg";
-
+import Luggage from "../../assets/img/Luggage.svg";
 export const FlightCard = () => {
   const [activeButton, setActiveButton] = useState(false);
   return (
@@ -27,9 +27,13 @@ export const FlightCard = () => {
             </div>
             <div className={styles.flight_time}>
               <div className={styles.flight_time_block}>
-                <div className={styles.point}></div>
+                <div className={styles.point}>
+                  <span className={styles.point_title}>SVO</span>
+                </div>
                 <div className={styles.line}></div>
-                <div className={styles.point}></div>
+                <div className={styles.point}>
+                  <span className={styles.point_title}>ROV</span>
+                </div>
               </div>
               <span className={styles.flight_time_title}>
                 В пути 1 ч 55 мин
@@ -64,6 +68,9 @@ export const FlightCard = () => {
               11:20 - 13:05
             </button>
           </div>
+        </div>
+        <div className={styles.luggage}>
+          <img src={Luggage} alt="Luggage" />
         </div>
         <div className={styles.price}>
           <span className={styles.price_item}>4500 &#8381;</span>
