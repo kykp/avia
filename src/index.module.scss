@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;400;700&display=swap');
+
+$bgc-main: #E5E5E5;
+$fs-main: 14px;
+$ff-main: "Roboto", sans-serif;
+$tc-main: #5C5C5C; 
+$bg-primary: #5C87DB;
+$fs-main-title: 25px;
+$fs-line-height: 16.41px;
+
+body {
+    font-family: $ff-main;
+    color: $tc-main;
+    margin: 0;
+    background-color: $bgc-main;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;  
+    line-height: $fs-line-height;
+}
+
+input:focus, button:focus, textarea:focus {
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+    line-height: inherit;
+} 
+input, button {
+    border:none;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+ul, li, p, span {
+    padding: 0; 
+    margin: 0;
+    list-style-type: none;
+    font-size: inherit;
+}
+  
+a {
+    outline: none;
+    color: $tc-main; 
+    text-decoration: none;
+    font-size: inherit;
+  }
+ 
+.page {
+    margin: 0 auto;
+}

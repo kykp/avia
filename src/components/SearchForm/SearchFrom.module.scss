@@ -1,0 +1,92 @@
+@import "../../index.module.scss";
+
+
+.search_form {
+    margin: 0 auto;
+    margin-top: 68px;
+    width: 962px;
+    height: 100px;
+    background-color: $bg-primary;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    height: 100%;
+}
+.input {
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 208px; 
+    height: 40px;
+    position: relative;  
+}
+ 
+
+.input::placeholder {
+    font-size: $fs-main;  
+}  
+ 
+.input_first {
+    display: inline-block;
+    position: relative;
+    
+} 
+.input_first::-webkit-calendar-picker-indicator {
+    color: transparent;
+    opacity: 1;
+    background: url("../../assets//img/calendar.svg") no-repeat center;
+    background-size: contain; 
+    left: 12px;
+    position: absolute; 
+} 
+.input_second::-webkit-calendar-picker-indicator { 
+    color: transparent;
+    opacity: 1;
+    background: url("../../assets//img/calendar-black.svg") no-repeat center; 
+    background-size: contain; 
+    left: 12px;
+    position: absolute; 
+}
+
+.line {
+    width: 100%;
+}
+ 
+input[type="date"]::before{
+    color: #999;
+    content: attr(placeholder);
+    margin-left: 35px; 
+    line-height: $fs-line-height; 
+}  
+
+.input_label {
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 12.9px;
+    color: #FFFFFF;
+}
+
+.button { 
+    margin-top: 25px;
+    margin-right: 30px;
+    width: 158px;
+    height: 40px;
+    background-color: $bg-primary;
+    font-size: 14px;
+    line-height: 19.6px;
+    text-align: center;
+    font-weight: 400;
+    color: #FFFFFF;
+    float: right;
+    border-radius: 10px;
+}
+.button:disabled {
+    background-color: #B7BAC1;
+}
