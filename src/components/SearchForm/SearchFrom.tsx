@@ -1,9 +1,12 @@
-import React, { useState, useEffect, ComponentClass } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./SearchFrom.module.scss";
 
 import { containsNumbers } from "../../helper/containsNumber";
+import { useAppDispatch } from "../../helper/hook";
+import { useNavigate } from "react-router-dom";
+
 import clsx from "clsx";
-import { Link } from "react-router-dom";
+import { addTicket } from "../../store/ticketSlice/ticketSlice";
 const currentDate = new Date().toISOString().split("T")[0];
 
 type TravelData = {
@@ -20,6 +23,9 @@ const defaultTravelData: TravelData = {
   backDate: "",
 };
 export const SearchFrom = () => {
+  const dispatch = useAppDispatch();
+
+  const navigator = useNavigate();
   const [data, setData] = useState<TravelData>(defaultTravelData);
   const [validation, setValidation] = useState(false);
 
@@ -28,6 +34,11 @@ export const SearchFrom = () => {
     setData({ ...data, [name]: value });
   };
 
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigator("/avia/info");
+    dispatch(addTicket({ ...data }));
+  };
   useEffect(() => {
     data.whereFrom !== "" && data.whereGoing !== "" && data.leaveDate !== ""
       ? setValidation(true)
@@ -40,7 +51,7 @@ export const SearchFrom = () => {
 
   return (
     <section className={styles.page}>
-      <form className={styles.search_form}>
+      <form className={styles.search_form} onSubmit={submitHandler}>
         <div className={styles.inputs}>
           <label className={styles.input_label}>
             Откуда
@@ -88,12 +99,15 @@ export const SearchFrom = () => {
             />
           </label>
         </div>
-      </form>
-      <Link to="/avia/info">
-        <button className={styles.button} disabled={!validation}>
+        <button
+          type="submit"
+          onClick={submitHandler}
+          className={styles.button}
+          disabled={!validation}
+        >
           Найти билеты
         </button>
-      </Link>
+      </form>
     </section>
   );
 };
