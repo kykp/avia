@@ -9,6 +9,27 @@ import clsx from "clsx";
 import { addTicket } from "../../store/ticketSlice/ticketSlice";
 const currentDate = new Date().toISOString().split("T")[0];
 
+export const travelTime = [
+  {
+    id: 1,
+    leaveTime: "9:20",
+    backTime: "11:05",
+    isActive: true,
+  },
+  {
+    id: 2,
+    leaveTime: "10:20",
+    backTime: "12:05",
+    isActive: false,
+  },
+  {
+    id: 3,
+    leaveTime: "11:20",
+    backTime: "13:05",
+    isActive: false,
+  },
+];
+
 type TravelData = {
   whereFrom: string;
   whereGoing: string;
@@ -37,12 +58,10 @@ export const SearchFrom = () => {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     navigator("/avia/info");
-    dispatch(addTicket({ ...data }));
+    dispatch(addTicket({ ...data, availableTime: travelTime }));
   };
   useEffect(() => {
-    data.whereFrom !== "" && data.whereGoing !== "" && data.leaveDate !== ""
-      ? setValidation(true)
-      : setValidation(false);
+    data.leaveDate !== "" ? setValidation(true) : setValidation(false);
 
     containsNumbers(data.whereFrom) || containsNumbers(data.whereGoing)
       ? setValidation(false)

@@ -1,3 +1,7 @@
 export const containsNumbers = (str: string) => {
-  return /[0-9]/.test(str);
+  if (str === "") {
+    return true;
+  } else {
+    return /[0-9]/.test(str);
+  }
 };
