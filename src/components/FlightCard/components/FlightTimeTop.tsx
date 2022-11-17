@@ -22,7 +22,7 @@ export const FlightTimeTop = () => {
     <div className={styles.flightTime_top}>
       <div className={styles.home_date}>
         <span className={styles.home_date_time}>{flighTime.leave}</span>
-        <span className={styles.home_date_date}></span>
+        <span className={styles.home_date_date}>{whereFrom}</span>
         <span className={styles.home_date_date}>
           {leaveDate.split("-").reverse().join("-")}
         </span>
